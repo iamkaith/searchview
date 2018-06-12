@@ -1,5 +1,6 @@
-# SearchView on Android Tutorial
+# SearchView Widget Android Tutorial
 This tutorial will cover how to create a custom toolbar for your Android app with search functionality. This replaces your normal ActionToolbar with your own custom toolbar. Traditionally SearchView Widget is used when there is a ListView element on the page where the search will filter through. 
+
 
 
 # SearchView Widget - Custom Toolbar with Search Functionality
@@ -116,6 +117,8 @@ This tutorial will cover how to create a custom toolbar for your Android app wit
                 Wanna start another activity instead? Go for it.
                 This is a boilerplate if you want to use the text string in the item as data to be passed to another Activity of your choice.
                 In my example I open another Activity that says "Hi" + string value of the list item.
+
+                The method underneath is a wrapper for my own Intent + startActivity combo taking a string as a parameter.
                 */
                 launchNewActivity(adapterView.getItemAtPosition(i).toString());
             }
@@ -166,3 +169,23 @@ public boolean onCreateOptionsMenu(Menu menu) {
     }
 ```
 
+12. Lastly, for my example when a list item is clicked a new activity is launched. You're welcome to replace this functionality with something else you need. I created a ```public void launchNewActivity(string query)``` which acts as a wrapper for Intent + startActivity combo. This also allows for reuse if you wanted to include a new launch combo for ```onQueryTextSubmit()``` in the previous step.
+
+```java
+
+public void launchNewActivity(String query) {
+        Intent intent = new Intent(SearchActivity.this, OtherActivity.class);
+        intent.putExtra("query", query);
+        startActivity(intent);
+    }
+```
+
+13. Finishing touches:
+    - created OtherActivity class to show taking a string from our list view and use in another Activity
+
+
+To see the source code download or clone this repo!
+
+For more information, I used these documents as reference.
+- Full SearchView documentation: https://developer.android.com/reference/android/widget/SearchView 
+- Using Action Views: https://developer.android.com/training/appbar/action-views 
