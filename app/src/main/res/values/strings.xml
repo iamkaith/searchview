@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SearchView</string>
     <string name="search_hint">Your query</string>
+    <string name="search">Search</string>
     <string-array name="star_wars">
         <item>Leia Organa</item>
         <item>Han Solo</item>
