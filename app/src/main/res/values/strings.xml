@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SearchView</string>
+    <string name="search_hint">Your query</string>
+    <string-array name="star_wars">
+        <item>Leia Organa</item>
+        <item>Han Solo</item>
+        <item>Luke Skywalker</item>
+        <item>Obi-Wan Kenobi</item>
+        <item>R2-D2</item>
+        <item>Anakin Skywalker</item>
+        <item>Kylo Ren</item>
+    </string-array>
+</resources>
