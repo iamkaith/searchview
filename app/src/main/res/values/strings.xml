@@ -2,6 +2,7 @@
     <string name="app_name">SearchView</string>
     <string name="search_hint">Your query</string>
     <string name="search">Search</string>
+    <string name="sorry_no_results_found">Sorry, no results found.</string>
     <string-array name="star_wars">
         <item>Leia Organa</item>
         <item>Han Solo</item>

@@ -78,6 +78,8 @@ This tutorial will cover how to create a custom toolbar for your Android app wit
     </item>
     ```
 
+    - note: if you don't have the search icon, you can add a new Vector asset into your project and look through the list available.
+
 9. Finally! Go to your SearchActivity. Let's get this going. We're going to start with our 4 private fields at class level
 
     - Toolbar (make sure you import the correct version: ```android.support.v7.widget.Toolbar```)
@@ -101,26 +103,19 @@ This tutorial will cover how to create a custom toolbar for your Android app wit
         listView = findViewById(R.id.listView);
         emptyView = findViewById(R.id.emptyList);
 
-        adapter = new ArrayAdapter<String>(SearchActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.star_wars));
+        // get the string array from your strings.xml file
+        adapter = new ArrayAdapter<String>(SearchActivity.this, android.R.layout.simple_list_item_activated_1, getResources().getStringArray(R.array.star_wars));
+
         listView.setAdapter(adapter); // show list
         listView.setEmptyView(emptyView); // show no results found
 
         // list item click
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
-
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
-                // I used this initially to ensure the click listener works
-                // Toast.makeText(SearchActivity.this, adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
-
-                /*
-                Wanna start another activity instead? Go for it.
-                This is a boilerplate if you want to use the text string in the item as data to be passed to another Activity of your choice.
-                In my example I open another Activity that says "Hi" + string value of the list item.
-
-                The method underneath is a wrapper for my own Intent + startActivity combo taking a string as a parameter.
-                */
-                launchNewActivity(adapterView.getItemAtPosition(i).toString());
+                String query = adapterView.getItemAtPosition(i).toString();
+                launchNewActivity(query);
             }
         });
 
